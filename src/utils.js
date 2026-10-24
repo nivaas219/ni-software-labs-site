@@ -1,0 +1,8 @@
+export function countText(text='') { return {characters:text.length, charactersNoSpaces:text.replace(/\s/g,'').length, words:(text.trim().match(/\S+/g)||[]).length, lines:text.length ? text.split(/\r?\n/).length : 0}; }
+export function formatJson(input) { const value=JSON.parse(input); return JSON.stringify(value,null,2); }
+export function encodeBase64(input) { return btoa(unescape(encodeURIComponent(input))); }
+export function decodeBase64(input) { return decodeURIComponent(escape(atob(input))); }
+export function makeUuid() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==='x'?r:(r&0x3|0x8)).toString(16)}); }
+export function textDiff(a,b) { const aa=a.split('\n'),bb=b.split('\n'); return {removed:aa.filter(x=>!bb.includes(x)),added:bb.filter(x=>!aa.includes(x)),same:aa.filter(x=>bb.includes(x))}; }
+export function summarize(text, length='medium') { const sentences=(text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[]).map(s=>s.trim()).filter(Boolean); if(sentences.length<3)return text.trim(); const count=length==='short'?1:length==='detailed'?Math.min(6,Math.ceil(sentences.length*.65)):Math.min(3,Math.ceil(sentences.length*.35)); const scored=sentences.map((s,i)=>({s,i,score:(s.match(/[A-Z][a-z]+|\bimportant\b|\btherefore\b|\bbecause\b|\bresult\b/gi)||[]).length+ (i===0?2:0)})); return scored.sort((a,b)=>b.score-a.score).slice(0,count).sort((a,b)=>a.i-b.i).map(x=>x.s).join(' '); }
+export function csvToJson(input) { const rows=input.trim().split(/\r?\n/).map(r=>r.split(',').map(v=>v.trim().replace(/^"|"$/g,''))); if(rows.length<2) throw new Error('Add a header row and at least one data row.'); const headers=rows.shift(); return rows.map(row=>Object.fromEntries(headers.map((h,i)=>[h,row[i]??'']))); }
