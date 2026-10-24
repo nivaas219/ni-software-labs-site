@@ -98,3 +98,22 @@ The app stores preferences, favorites and vocabulary in the browser's `localStor
 ## License
 
 MIT; see `LICENSE`.
+
+## Expanded local tool suite and AI Studio
+
+The workspace now includes **80+ browser-side developer, text, data, design, security-reference and productivity utilities**. Search and category filters help locate tools. Utilities process input locally unless a tool explicitly opens an external official resource. Some tools are intentionally described as basic helpers (for example, the JavaScript minifier, readability helper, JWT decoder and password-strength estimator); do not treat their output as a security audit or production-grade parser.
+
+### Prompt Arcade / AI Studio
+
+Open **AI Studio** in the sidebar to describe a game in plain English and generate a playable starter prototype. The no-API demo currently supports clicker/idle, Snake, quiz and simple runner templates, with sandboxed preview and standalone HTML download. This is a **local template generator, not a live LLM**: it does not reliably transform arbitrary requirements into a fully custom game. The UI and documentation reserve the provider integration for a future server-side API adapter.
+
+### Connecting an AI provider later
+
+- Keep provider keys on a server or serverless function as environment secrets.
+- Do not put secrets in frontend source or `VITE_*` variables; those values are bundled for the browser.
+- Add authentication, request validation, timeouts, usage limits and rate limiting before exposing AI endpoints publicly.
+- AI features remain in local/demo mode until the backend is implemented and configured. No API key is required for the included browser utilities.
+
+### Verification note for this expanded archive
+
+Dependency installation could not complete in the build environment during this update, so a fresh production build and the full Vitest suite were not verified here. Run `npm install`, `npm test`, and `npm run build` locally after extraction. Report any resulting errors before treating the project as production-ready.
