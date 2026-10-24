@@ -1,0 +1,10 @@
+{
+  "name": "NI Software Labs",
+  "short_name": "NI Labs",
+  "description": "Practical tools for students, makers, and developers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1017",
+  "theme_color": "#10131b",
+  "icons": [{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

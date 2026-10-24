@@ -1,100 +1,72 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11110f">
-  <meta name="description" content="NI Software Labs is an independent, privacy-minded software lab building useful tools for students, creators, and developers. Our lab is in progress.">
-  <meta name="robots" content="index,follow">
-  <title>NI Software Labs — Build. Automate. Scale.</title>
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10131b" />
+  <meta name="description" content="NI Software Labs — practical, accessible tools for students, makers, and developers." />
+  <title>NI Software Labs — Build something useful</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="NI Software Labs home">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5 42 15.5v17L24 43 6 32.5v-17L24 5Z"/><path d="M15 31V17l18 14V17"/><path class="gold-stroke" d="M24 12c-3.2 5.3-7 9.1-7 13.1a7 7 0 0 0 14 0C31 21.1 27.2 17.3 24 12Z"/></svg></span>
-        <span class="brand-copy"><strong>NI <span>Software Labs</span></strong><small>INDEPENDENT DIGITAL LAB</small></span>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="NI Software Labs home">
+        <span class="brand-mark">NI<span>.</span></span>
+        <span class="brand-copy"><strong>NI Software Labs</strong><small>Build. Learn. Ship.</small></span>
       </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#lab">The Lab</a><a href="#roadmap">Roadmap</a><a href="#privacy">Privacy</a>
-        <a class="nav-cta" href="#ideas">Share an idea <span aria-hidden="true">↗</span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-page="home"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#labs" data-page="labs"><span>▦</span> Developer Labs <em>8</em></a>
+        <a class="nav-link" href="#progress" data-page="progress"><span>◷</span> Lab progress</a>
+        <a class="nav-link" href="#roadmap" data-page="roadmap"><span>↗</span> Roadmap</a>
+        <a class="nav-link" href="#suggest" data-page="suggest"><span>✳</span> Suggest an idea</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button>
-    </header>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#lab">The Lab</a><a href="#roadmap">Roadmap</a><a href="#privacy">Privacy</a><a href="#ideas">Share an idea ↗</a>
-    </nav>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><strong>Early access</strong><small>Tools run in your browser</small></div></div>
+        <a class="nav-link" href="mailto:nivaas9293@gmail.com"><span>↗</span> Contact the lab</a>
+        <div class="sidebar-foot">© 2026 NI Software Labs</div>
+      </div>
+    </aside>
 
-    <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-content">
-          <div class="eyebrow"><span class="pulse"></span> SMALL TEAM. BIG CURIOSITY. <span class="eyebrow-line"></span></div>
-          <h1>Useful software.<br><span>Thoughtfully built.</span></h1>
-          <p class="hero-lede">We’re an independent software lab exploring helpful tools for students, creators, and developers — with privacy and accessibility in mind.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#lab">Explore the lab <span aria-hidden="true">↓</span></a><a class="text-link" href="#ideas">Have an idea? <span aria-hidden="true">↗</span></a></div>
-          <div class="hero-foot"><span class="status-dot"></span><span>LAB STATUS</span><strong>IN PROGRESS</strong><span class="foot-sep">/</span><span>Building our first release</span></div>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumbTitle">Overview</strong></div>
+        <div class="top-actions"><span class="local-pill"><span class="status-dot"></span> Local-first tools</span><button class="icon-button" id="themeToggle" title="Toggle appearance" aria-label="Toggle appearance">◐</button><div class="avatar" title="NI Software Labs">NI</div></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="spark">✦</span> THE BUILD SPACE</div><h1>Make your next idea<br/><span class="gradient-text">a working thing.</span></h1><p class="lead">A growing collection of practical tools for students, creators, and developers. No account. No setup. Just open a tool and get building.</p><div class="hero-actions"><a class="button primary" href="#labs">Explore the labs <span>→</span></a><a class="button secondary" href="#roadmap">See what’s next</a></div></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="core-logo">NI<span>.</span></div><div class="float-chip chip-code">&lt;/&gt; <small>CODE</small></div><div class="float-chip chip-ai">✳ <small>IDEAS</small></div><div class="float-chip chip-braces">{ } <small>BUILD</small></div><div class="art-caption">SMALL TOOLS. REAL PROGRESS.</div></div></div>
+        <div class="stats-grid"><div class="stat-card"><span class="stat-icon violet">▦</span><div><strong>08</strong><small>Browser tools</small></div><span class="stat-note">Available now</span></div><div class="stat-card"><span class="stat-icon teal">⌘</span><div><strong>₹0</strong><small>To get started</small></div><span class="stat-note">No paid API needed</span></div><div class="stat-card"><span class="stat-icon amber">◉</span><div><strong>Local</strong><small>By default</small></div><span class="stat-note">Your work stays here</span></div></div>
+        <div class="section-heading"><div><div class="eyebrow">YOUR WORKBENCH</div><h2>Jump back into building</h2><p>Handy utilities for your everyday development workflow.</p></div><a class="text-link" href="#labs">All tools <span>→</span></a></div>
+        <div class="tool-grid home-tool-grid">
+          <button class="tool-card" data-open-tool="playground"><span class="tool-icon violet">&lt;/&gt;</span><span class="tool-category">WEB DEVELOPMENT</span><strong>Live Playground</strong><p>Write HTML, CSS and JS with an instant preview.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
+          <button class="tool-card" data-open-tool="json"><span class="tool-icon teal">{ }</span><span class="tool-category">DATA</span><strong>JSON Formatter</strong><p>Format, validate and compact JSON safely.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
+          <button class="tool-card" data-open-tool="text"><span class="tool-icon amber">Tt</span><span class="tool-category">WRITING</span><strong>Text Toolkit</strong><p>Count words and transform text in seconds.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
+          <button class="tool-card" data-open-tool="colors"><span class="tool-icon pink">◒</span><span class="tool-category">DESIGN</span><strong>Color Studio</strong><p>Create gradients and copy color values.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
         </div>
-        <div class="hero-art" aria-label="Abstract golden droplet brand artwork">
-          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-cross cross-a"></div><div class="art-cross cross-b"></div>
-          <div class="art-card"><span class="art-card-label">NI / 001</span><svg class="droplet" viewBox="0 0 220 260" role="img" aria-label="Abstract golden droplet"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b4"/><stop offset=".36" stop-color="#e8c568"/><stop offset=".7" stop-color="#b88628"/><stop offset="1" stop-color="#f7df92"/></linearGradient></defs><path d="M110 14C82 60 34 108 34 159a76 76 0 0 0 152 0C186 108 138 60 110 14Z" fill="url(#gold)"/><path d="M80 151c3-17 13-33 25-49" fill="none" stroke="#fff5cf" stroke-width="5" stroke-linecap="round" opacity=".75"/><path d="M79 187c9 17 25 25 42 23" fill="none" stroke="#76531b" stroke-width="4" stroke-linecap="round" opacity=".5"/></svg><span class="art-card-caption">IDEAS INTO REALITY</span></div>
-          <span class="art-coordinate coord-a">11°00' N<br>76°58' E</span><span class="art-coordinate coord-b">DESIGN / BUILD / LEARN</span>
-        </div>
-        <div class="hero-bottom"><span>01 — A WORK IN PROGRESS</span><span>MADE WITH CURIOSITY <span class="tiny-star">✳</span></span></div>
+        <div class="bottom-panels"><div class="panel roadmap-mini"><div class="panel-title"><div><div class="eyebrow">IN THE WORKS</div><h3>Lab progress</h3></div><a href="#progress" class="text-link">Details →</a></div><div class="mini-progress"><div class="progress-label"><span>Developer tools foundation</span><strong>In progress</strong></div><div class="progress-track"><span style="width:68%"></span></div><small>Core browser tools are available. More tools are being planned.</small></div><div class="milestone-list"><div class="milestone done"><i>✓</i><span><strong>Brand & website</strong><small>Foundation published in this package</small></span><b>Done</b></div><div class="milestone current"><i>•</i><span><strong>First useful tools</strong><small>Browser-based toolkit</small></span><b>Active</b></div><div class="milestone"><i>3</i><span><strong>Community feedback</strong><small>Collect ideas and improve</small></span><b>Next</b></div></div></div><div class="panel idea-panel"><div class="idea-spark">✳</div><div class="eyebrow">YOUR IDEA MATTERS</div><h3>What should we build next?</h3><p>Suggest a tool, share a pain point, or tell us what would make learning to code easier.</p><a class="button secondary full" href="#suggest">Share an idea <span>→</span></a><small>Opens your email app to send the suggestion.</small></div></div>
+        <footer class="site-footer"><span>NI Software Labs · Built for curious minds.</span><div><a href="privacy.html">Privacy</a><a href="mailto:nivaas9293@gmail.com">Contact</a><a href="https://github.com/nivaas219" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer>
       </section>
 
-      <section class="intro section-pad" id="lab">
-        <div class="section-label"><span>01</span> / THE LAB</div>
-        <div class="intro-main"><p class="kicker">NOT ANOTHER NOISE MACHINE.</p><h2>Tools that make<br>building feel <em>possible.</em></h2></div>
-        <div class="intro-aside"><p>NI Software Labs is at the beginning of its journey. We’re experimenting, learning in public, and working toward small, useful products that lower the barrier to creating software.</p><a class="inline-link" href="#roadmap">See what we’re working on <span>↘</span></a></div>
-      </section>
+      <section class="page" id="page-labs"><div class="page-intro"><div class="eyebrow">TOOLBOX / 08 AVAILABLE</div><h1>Developer <span class="gradient-text">Labs</span></h1><p>Small, focused tools that work directly in your browser. Choose a tool to get started.</p></div><div class="filter-row"><label class="search-box"><span>⌕</span><input id="toolSearch" type="search" placeholder="Search tools…" aria-label="Search tools" /></label><div class="filter-chips"><button class="filter-chip selected" data-filter="all">All tools</button><button class="filter-chip" data-filter="dev">Developer</button><button class="filter-chip" data-filter="text">Text</button><button class="filter-chip" data-filter="design">Design</button></div></div><div class="tool-grid all-tool-grid" id="allToolsGrid"></div><div class="notice"><span>ⓘ</span><p><strong>Privacy note:</strong> Tools process your input in your browser. This static version does not upload your code or text to a server.</p></div></section>
 
-      <section class="focus section-pad">
-        <div class="section-heading"><div><div class="section-label"><span>02</span> / AREAS OF EXPLORATION</div><h2>What we're <em>exploring.</em></h2></div><p>Early directions, not promises. We’ll share updates as the work becomes real.</p></div>
-        <div class="focus-grid">
-          <article class="focus-card focus-featured"><div class="card-top"><span class="card-index">01 / EXPERIMENT</span><span class="mini-icon">✳</span></div><div class="card-illustration prompt-illustration"><div class="prompt-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="prompt-line line-long"></div><div class="prompt-line line-mid"></div><div class="prompt-line line-short"></div><div class="prompt-chip">make something fun <span>↗</span></div></div></div><h3>Prompt-to-Play</h3><p>Exploring ways to turn a simple idea into a tiny game or interactive experience.</p><span class="card-status"><i></i> PROTOTYPE EXPLORATION</span></article>
-          <article class="focus-card"><div class="card-top"><span class="card-index">02 / EXPLORATION</span><span class="mini-icon">⌘</span></div><div class="card-illustration web-illustration"><div class="browser-shape"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><b></b><span></span><span></span><div></div></div></div></div><h3>Simple Web Builders</h3><p>Making the first steps of creating and sharing a website less intimidating.</p><span class="card-status muted"><i></i> PLANNED</span></article>
-          <article class="focus-card"><div class="card-top"><span class="card-index">03 / PRINCIPLE</span><span class="mini-icon">◈</span></div><div class="card-illustration privacy-illustration"><div class="shield-shape"><svg viewBox="0 0 100 110" aria-hidden="true"><path d="M50 5 88 20v29c0 26-16 44-38 56C28 93 12 75 12 49V20L50 5Z"/><path d="m34 53 11 11 23-25"/></svg></div><span class="privacy-caption">LESS DATA. MORE CONTROL.</span></div><h3>Privacy-minded Tools</h3><p>Prefer local processing and collect as little personal data as practical.</p><span class="card-status muted"><i></i> DESIGN PRINCIPLE</span></article>
-        </div>
-      </section>
+      <section class="page" id="page-tool"><div class="tool-page-head"><button class="back-link" id="backToLabs">← All labs</button><div class="eyebrow" id="toolCategory">DEVELOPER TOOL</div><h1 id="toolTitle">Tool</h1><p id="toolDescription">Tool description</p></div><div class="tool-workspace" id="toolWorkspace"></div></section>
 
-      <section class="roadmap section-pad" id="roadmap">
-        <div class="section-heading"><div><div class="section-label"><span>03</span> / BUILD LOG</div><h2>Progress, <em>not hype.</em></h2></div><p>We’ll update this roadmap as milestones are completed. No fake launch countdowns.</p></div>
-        <div class="timeline">
-          <article class="timeline-item done"><div class="timeline-marker"><span>01</span></div><div class="timeline-copy"><div class="timeline-meta"><span>FOUNDATION</span><span class="state state-active">IN PROGRESS</span></div><h3>Brand & public lab page</h3><p>Define the identity, explain the mission, and make it easy to follow the journey.</p></div><div class="timeline-date">NOW</div></article>
-          <article class="timeline-item"><div class="timeline-marker"><span>02</span></div><div class="timeline-copy"><div class="timeline-meta"><span>FIRST PRODUCT</span><span class="state">PLANNED</span></div><h3>Make the prototype useful</h3><p>Improve the first interactive tool and clearly document what it can — and cannot — do.</p></div><div class="timeline-date">NEXT</div></article>
-          <article class="timeline-item"><div class="timeline-marker"><span>03</span></div><div class="timeline-copy"><div class="timeline-meta"><span>EARLY FEEDBACK</span><span class="state">PLANNED</span></div><h3>Invite a few early testers</h3><p>Learn from real people, fix rough edges, and prioritize accessibility and safety.</p></div><div class="timeline-date">LATER</div></article>
-          <article class="timeline-item"><div class="timeline-marker"><span>04</span></div><div class="timeline-copy"><div class="timeline-meta"><span>PUBLIC RELEASE</span><span class="state">PLANNED</span></div><h3>Release when it’s ready</h3><p>Publish a clear, usable first version with honest limits and a way to report issues.</p></div><div class="timeline-date">TBD</div></article>
-        </div>
-        <p class="roadmap-note"><span>✳</span> Dates will be shared when they’re realistic. Product ideas may change as we learn.</p>
-      </section>
+      <section class="page" id="page-progress"><div class="page-intro"><div class="eyebrow">TRANSPARENCY FIRST</div><h1>Lab <span class="gradient-text">progress</span></h1><p>We’ll show what is actually available and what is still being built. No fake launch timers or inflated claims.</p></div><div class="progress-banner"><div><span class="live-dot"></span> CURRENT FOCUS</div><h2>Make the basics useful and reliable.</h2><p>Building a solid collection of free, browser-based utilities before expanding into more complex products.</p></div><div class="progress-list"><div class="progress-item"><div class="progress-symbol done">✓</div><div class="progress-info"><span class="eyebrow">MILESTONE 01</span><h3>Brand & website foundation</h3><p>Responsive website, navigation, privacy information, and public contact route.</p></div><span class="state-tag done-tag">Available</span></div><div class="progress-item"><div class="progress-symbol active-symbol">02</div><div class="progress-info"><span class="eyebrow">MILESTONE 02</span><h3>First browser tools</h3><p>Live code playground, JSON formatter, text toolkit, encoding tools, password generator, and color studio.</p></div><span class="state-tag active-tag">Available</span></div><div class="progress-item"><div class="progress-symbol planned">03</div><div class="progress-info"><span class="eyebrow">MILESTONE 03</span><h3>Community feedback</h3><p>Collect suggestions, prioritize useful requests, and refine tools based on real usage.</p></div><span class="state-tag planned-tag">Planned</span></div><div class="progress-item"><div class="progress-symbol planned">04</div><div class="progress-info"><span class="eyebrow">MILESTONE 04</span><h3>More advanced labs</h3><p>Explore AI-assisted tools and project workflows after choosing a suitable, affordable backend.</p></div><span class="state-tag planned-tag">Planned</span></div></div></section>
 
-      <section class="privacy section-pad" id="privacy">
-        <div class="privacy-mark"><svg viewBox="0 0 100 110" aria-hidden="true"><path d="M50 5 88 20v29c0 26-16 44-38 56C28 93 12 75 12 49V20L50 5Z"/><path d="m34 53 11 11 23-25"/></svg></div>
-        <div class="privacy-copy"><div class="section-label"><span>04</span> / A PRINCIPLE, NOT A BADGE</div><h2>Privacy should be<br><em>the default.</em></h2><p>We want to build with restraint: no unnecessary analytics, no surprise data collection, and local processing where practical. Hosting providers may still process basic connection data, so we’ll be transparent about the limits.</p><a class="inline-link" href="/privacy.html">Read our privacy notes <span>↗</span></a></div>
-        <div class="privacy-stats"><div><strong>0</strong><span>THIRD-PARTY TRACKERS<br>INTENTIONALLY ADDED</span></div><div><strong>Local-first</strong><span>A DIRECTION WE AIM<br>TO FOLLOW</span></div></div>
-      </section>
+      <section class="page" id="page-roadmap"><div class="page-intro"><div class="eyebrow">THE BUILD PLAN</div><h1>From idea to <span class="gradient-text">impact.</span></h1><p>A practical roadmap. Priorities can change based on feedback and what can be built sustainably.</p></div><div class="roadmap-grid"><div class="roadmap-card"><span class="roadmap-number">01</span><span class="state-tag done-tag">Foundation</span><h3>Build the base</h3><p>Website, clear project status, and essential browser tools.</p><ul><li>Responsive UI</li><li>Core utilities</li><li>Privacy-first processing</li></ul></div><div class="roadmap-card highlighted"><span class="roadmap-number">02</span><span class="state-tag active-tag">Current focus</span><h3>Improve the labs</h3><p>Make existing tools easier to use and collect meaningful feedback.</p><ul><li>Fixes and accessibility</li><li>Useful templates</li><li>Community suggestions</li></ul></div><div class="roadmap-card"><span class="roadmap-number">03</span><span class="state-tag planned-tag">Planned</span><h3>Build bigger tools</h3><p>Choose advanced projects based on demand, cost, and feasibility.</p><ul><li>AI features, if funded</li><li>Project export workflows</li><li>Optional premium features</li></ul></div></div><div class="notice"><span>ⓘ</span><p>Roadmap items are intentions, not promises or release dates. AI services and cloud features may require a backend, service credentials, and separate deployment setup.</p></div></section>
 
-      <section class="ideas section-pad" id="ideas">
-        <div class="ideas-bg" aria-hidden="true"></div><div class="section-label"><span>05</span> / OPEN INVITATION</div>
-        <div class="ideas-content"><p class="kicker">GOOD IDEAS CAN COME FROM ANYWHERE.</p><h2>What should we<br><em>build next?</em></h2><p>Tell us about a tool you wish existed, a task that feels harder than it should, or an idea you’d love to try.</p>
-          <form id="idea-form" class="idea-form">
-            <label for="idea-name">Your name <span>(optional)</span></label><input id="idea-name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="What should we call you?">
-            <label for="idea-type">What kind of idea?</label><select id="idea-type" name="type"><option>AI or automation tool</option><option>Website or developer tool</option><option>Game or interactive experience</option><option>Privacy or security idea</option><option>Something else</option></select>
-            <label for="idea-message">Your idea</label><textarea id="idea-message" name="message" rows="4" maxlength="3000" required placeholder="A few sentences are enough..."></textarea>
-            <p class="form-note">Your message is prepared in your email app. This page does not send or store it on a server. Don’t include passwords, secrets, or sensitive personal information.</p>
-            <button class="button button-primary submit-button" type="submit">Prepare email <span aria-hidden="true">↗</span></button><p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-        <div class="ideas-side"><div class="side-star">✳</div><p>SMALL STEPS.<br>REAL PROGRESS.</p><span>NI / LAB NOTES 001</span></div>
-      </section>
+      <section class="page" id="page-suggest"><div class="suggest-layout"><div class="page-intro"><div class="eyebrow">HELP SHAPE THE LAB</div><h1>Have an idea?<br/><span class="gradient-text">Send it our way.</span></h1><p>Tell us what tool would help you study, build, design, or solve a real problem. Useful, specific suggestions are the easiest to act on.</p><div class="suggest-points"><div><span>✦</span><div><strong>Practical problems welcome</strong><small>Describe what takes too much time or feels too difficult.</small></div></div><div><span>⌘</span><div><strong>Students and developers</strong><small>Beginner-friendly ideas are especially welcome.</small></div></div><div><span>↗</span><div><strong>Direct contact</strong><small>Your email app opens with a draft; you choose whether to send it.</small></div></div></div></div><form class="panel idea-form" id="ideaForm"><div class="form-head"><div class="eyebrow">IDEA SUBMISSION</div><h3>Tell us what to build</h3><p>Fields marked * are required.</p></div><label>Your name <span>*</span><input name="name" required maxlength="80" placeholder="How should we address you?" /></label><label>Your email <span>*</span><input type="email" name="email" required maxlength="120" placeholder="you@example.com" /></label><label>Idea title <span>*</span><input name="title" required maxlength="120" placeholder="e.g. A tool to organise coding notes" /></label><label>What should it do? <span>*</span><textarea name="details" required rows="5" maxlength="2000" placeholder="What problem does it solve? Who would use it? What would make it useful?"></textarea></label><label>Category<select name="category"><option>Developer tool</option><option>AI / automation</option><option>Education</option><option>Design</option><option>Productivity</option><option>Other</option></select></label><button class="button primary full" type="submit">Prepare email submission <span>→</span></button><p class="form-note">This form opens your default email app. It does not silently store or submit your details to this website.</p><div id="formStatus" class="form-status" aria-live="polite"></div></form></div></section>
+
+      <footer class="site-footer global-footer"><span>NI Software Labs · Build. Learn. Ship.</span><div><a href="privacy.html">Privacy</a><a href="mailto:nivaas9293@gmail.com">Contact</a><a href="https://github.com/nivaas219" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer>
     </main>
-
-    <footer class="footer"><a class="footer-brand" href="#top">NI<span>.</span></a><div class="footer-center"><strong>NI Software Labs</strong><span>Build. Automate. Scale.</span></div><div class="footer-links"><a href="/privacy.html">Privacy notes</a><a href="mailto:nivaas9293@gmail.com?subject=NI%20Software%20Labs">Contact</a><a href="#top">Back to top ↑</a></div><div class="footer-bottom"><span>© <span id="year">2026</span> NI Software Labs. An independent project in progress.</span><span>BUILT WITH CARE <span class="tiny-star">✳</span></span></div></footer>
   </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/script.js"></script>
 </body>
 </html>

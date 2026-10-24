@@ -1,61 +1,76 @@
-# NI Software Labs — Lab in Progress
+# NI Software Labs
 
-A responsive, static landing page for NI Software Labs. Built with plain HTML, CSS, and JavaScript so it can be hosted free as a static site and does not need a build step or package installation.
+A responsive, static website and browser-based developer toolbox for NI Software Labs. Built with plain HTML, CSS, and JavaScript so it can be hosted on Cloudflare Pages, GitHub Pages, Netlify, or any static host without a build step.
 
-## Features
+## Included tools
 
-- Responsive dark charcoal and gold design
-- Brand artwork and local SVG favicon
-- Lab status, project explorations, roadmap, privacy notes, and contact section
-- Accessible mobile navigation and reduced-motion support
-- Idea form prepares an email in the visitor's email app; it does not send or store submissions on a website server
-- No analytics, tracking pixels, external font imports, frameworks, or runtime dependencies intentionally added
-- `_headers` file for Cloudflare Pages security headers
+1. **Live Playground** — edit HTML, CSS, and JavaScript with a sandboxed iframe preview.
+2. **JSON Formatter** — validate, format, and minify JSON.
+3. **Text Toolkit** — word/character/line counts, case conversion, whitespace cleanup.
+4. **Base64 Converter** — UTF-8 text encoding/decoding. Base64 is not encryption.
+5. **URL Encoder** — encode/decode URL components.
+6. **Password Generator** — configurable random passwords using the browser Web Crypto API.
+7. **Color Studio** — gradient builder, palette swatches, copyable CSS/hex values.
+8. **Markdown Preview** — lightweight Markdown preview with HTML escaping.
+
+Also included: responsive overview dashboard, tool search and category filters, light/dark appearance toggle, project progress and roadmap pages, idea suggestion form that prepares a mailto draft, privacy notice, favicon, web manifest, robots.txt, security headers, and 404 page.
 
 ## Run locally (Git Bash)
 
-You can preview the static site using Python if installed:
+No Node.js, npm, or build command is required. The simplest option is to open `index.html` in a browser. For a local web server, if Python is installed:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. Alternatively, use the VS Code Live Server extension.
+Then visit `http://localhost:8000`.
 
-No `npm install` or build command is required.
+## Deploy to Cloudflare Pages
 
-## Deploy with GitHub + Cloudflare Pages
+### Dashboard (recommended)
 
-1. Create a new **public or private** GitHub repository, for example `ni-software-labs-site`.
-2. Extract this ZIP. In Git Bash, `cd` into the extracted `NI-Software-Labs-Website` directory.
-3. Run:
+1. Extract the ZIP.
+2. Push the folder to a GitHub repository, or use Cloudflare Pages direct upload if available in your account.
+3. In Cloudflare, open **Workers & Pages → Create → Pages** and connect the repository.
+4. Set **Framework preset** to `None` (or no framework).
+5. Set **Build command** to empty / none.
+6. Set **Build output directory** to `/` (the repository root).
+7. Deploy. Cloudflare will provide a `*.pages.dev` URL.
+
+### Git Bash — push to GitHub
+
+Create an empty repository on GitHub first, then run these commands from the extracted project folder. Replace `YOUR-REPO-NAME` with your repository name.
 
 ```bash
 git init
 git add .
-git commit -m "Initial NI Software Labs website"
+git commit -m "Build NI Software Labs website and browser tools"
 git branch -M main
-git remote add origin https://github.com/YOUR-GITHUB-USERNAME/ni-software-labs-site.git
+git remote add origin https://github.com/nivaas219/YOUR-REPO-NAME.git
 git push -u origin main
 ```
 
-Replace `YOUR-GITHUB-USERNAME` with your GitHub username. Create the repository on GitHub first; do not add a README there if this folder already has one.
+Then connect that GitHub repository in Cloudflare Pages. If you already have a repository with this project, do not run `git init` again; copy the files into that repository and commit them there.
 
-4. Sign in to Cloudflare and open Workers & Pages → Create → Pages → Connect to Git.
-5. Select the repository. For this plain static site, set the framework preset to **None**, leave Build command blank, and set Build output directory to `/` (or `.` if the UI asks for a relative directory).
-6. Deploy. Cloudflare will show a `*.pages.dev` URL when deployment completes.
+## Important limitations (transparent by design)
 
-Cloudflare's interface can change; follow its current prompts. Keep the repository root as the output directory because `index.html` is at the root.
+- The website and included tools are functional static/browser features. There is **no backend, database, authentication, or server-side idea submission** in this package.
+- The idea form opens the visitor's email app with a prefilled message to `nivaas9293@gmail.com`; the visitor must press Send. Submissions are not saved by the website.
+- AI tools are not falsely presented as live. Actual AI features require selecting an AI provider and safely adding a server-side function/API key; never place private API keys in front-end JavaScript.
+- The progress page describes the included foundation and future plans; roadmap items are not guaranteed release dates.
+- Google Fonts is an optional external request. The rest of the site is static.
 
-## Privacy and security notes
+## Customization
 
-- This site intentionally has no analytics or third-party tracking scripts.
-- A hosting/DNS provider may process connection data such as IP addresses and request logs; do not promise complete anonymity.
-- The idea form uses `mailto:`. Sending depends on the visitor's email app and is not a server-backed form.
-- Review `_headers` if you add new external scripts, embeds, or resources. A restrictive Content Security Policy may block newly added integrations until explicitly configured.
-- Security headers improve baseline protection but are not a complete security audit or guarantee.
-- Keep the contact email in `index.html` and `privacy.html` updated if it changes.
+- Main content: `index.html`
+- Styling: `styles.css`
+- Tool behavior/navigation: `script.js`
+- Privacy notice: `privacy.html`
+- Hosting headers: `_headers`
+- Search indexing: `robots.txt`
 
-## Current status
+Update the contact email in `index.html`, `script.js`, and `privacy.html` if it changes.
 
-This website is a public-facing progress page, not a claim that the upcoming products are complete. Roadmap items are labelled as in progress or planned.
+## License
+
+MIT — see `LICENSE`.
