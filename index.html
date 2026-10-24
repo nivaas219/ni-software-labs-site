@@ -1,72 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#10131b" />
-  <meta name="description" content="NI Software Labs — practical, accessible tools for students, makers, and developers." />
-  <title>NI Software Labs — Build something useful</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="stylesheet" href="/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060b18">
+  <meta name="description" content="NI Software Labs — a next-generation browser-based developer toolkit.">
+  <title>NI Software Labs — Build. Automate. Scale.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#home" aria-label="NI Software Labs home">
-        <span class="brand-mark">NI<span>.</span></span>
-        <span class="brand-copy"><strong>NI Software Labs</strong><small>Build. Learn. Ship.</small></span>
-      </a>
-      <div class="side-label">WORKSPACE</div>
-      <nav class="nav-list" aria-label="Main navigation">
-        <a class="nav-link active" href="#home" data-page="home"><span>⌂</span> Overview</a>
-        <a class="nav-link" href="#labs" data-page="labs"><span>▦</span> Developer Labs <em>8</em></a>
-        <a class="nav-link" href="#progress" data-page="progress"><span>◷</span> Lab progress</a>
-        <a class="nav-link" href="#roadmap" data-page="roadmap"><span>↗</span> Roadmap</a>
-        <a class="nav-link" href="#suggest" data-page="suggest"><span>✳</span> Suggest an idea</a>
-      </nav>
-      <div class="sidebar-bottom">
-        <div class="status-card"><span class="status-dot"></span><div><strong>Early access</strong><small>Tools run in your browser</small></div></div>
-        <a class="nav-link" href="mailto:nivaas9293@gmail.com"><span>↗</span> Contact the lab</a>
-        <div class="sidebar-foot">© 2026 NI Software Labs</div>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="NI Software Labs home"><span class="brand-mark">N<span>I</span></span><span class="brand-copy"><b>NI Software Labs</b><small>BUILD · AUTOMATE · SCALE</small></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+    <nav id="mainNav"><a class="active" href="#home">Home</a><a href="#labs">Labs</a><a href="#tools">Tools</a><a href="#roadmap">Roadmap</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <div class="top-actions"><label class="searchbox"><span>⌕</span><input id="globalSearch" placeholder="Search tools..." aria-label="Search tools"></label><button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button><a class="button button-small" href="#tools">Get Started <span>↗</span></a></div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> NEXT-GEN DEVELOPER PLATFORM</div>
+        <h1>Build. Automate.<br>Scale with <span class="gradient-text">AI.</span></h1>
+        <p class="hero-sub">Your all-in-one workspace for coding, AI workflows, and developer utilities. Build faster, work smarter, and turn ambitious ideas into reality.</p>
+        <div class="hero-actions"><a class="button" href="#tools">Explore tools <span>→</span></a><a class="button button-ghost" href="#labs"><span class="play">▶</span> Explore the labs</a></div>
+        <div class="trust-row"><span>◇ Free to explore</span><span>⌘ No installation</span><span>▣ Browser based</span><span>⬡ Privacy-minded</span></div>
       </div>
-    </aside>
+      <div class="hero-art" aria-label="Abstract AI developer workspace illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-tag tag-code">〈 / 〉 <small>CODE</small></div>
+        <div class="floating-tag tag-ai">✦ <small>AI LAB</small></div>
+        <div class="floating-tag tag-cloud">☁ <small>BUILD</small></div>
+        <div class="core-window"><div class="window-bar"><span></span><span></span><span></span><b>ni-labs / workspace</b></div><div class="code-lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="core-glow">NI<span>✦</span></div></div>
+        <div class="art-caption"><b>CODE. CREATE. INNOVATE.</b><span>One workspace. Many possibilities.</span></div>
+      </div>
+    </section>
 
-    <main class="main-area">
-      <header class="topbar">
-        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button>
-        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumbTitle">Overview</strong></div>
-        <div class="top-actions"><span class="local-pill"><span class="status-dot"></span> Local-first tools</span><button class="icon-button" id="themeToggle" title="Toggle appearance" aria-label="Toggle appearance">◐</button><div class="avatar" title="NI Software Labs">NI</div></div>
-      </header>
+    <section class="metrics section-wrap" aria-label="Platform highlights">
+      <div><b>20+</b><span>Browser utilities</span></div><div><b>0</b><span>Install steps</span></div><div><b>100%</b><span>Local-first tools*</span></div><div><b>∞</b><span>Ideas to explore</span></div>
+      <small>*Most utilities process data in your browser; external integrations require separate setup.</small>
+    </section>
 
-      <section class="page active" id="page-home">
-        <div class="welcome-row"><div><div class="eyebrow"><span class="spark">✦</span> THE BUILD SPACE</div><h1>Make your next idea<br/><span class="gradient-text">a working thing.</span></h1><p class="lead">A growing collection of practical tools for students, creators, and developers. No account. No setup. Just open a tool and get building.</p><div class="hero-actions"><a class="button primary" href="#labs">Explore the labs <span>→</span></a><a class="button secondary" href="#roadmap">See what’s next</a></div></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="core-logo">NI<span>.</span></div><div class="float-chip chip-code">&lt;/&gt; <small>CODE</small></div><div class="float-chip chip-ai">✳ <small>IDEAS</small></div><div class="float-chip chip-braces">{ } <small>BUILD</small></div><div class="art-caption">SMALL TOOLS. REAL PROGRESS.</div></div></div>
-        <div class="stats-grid"><div class="stat-card"><span class="stat-icon violet">▦</span><div><strong>08</strong><small>Browser tools</small></div><span class="stat-note">Available now</span></div><div class="stat-card"><span class="stat-icon teal">⌘</span><div><strong>₹0</strong><small>To get started</small></div><span class="stat-note">No paid API needed</span></div><div class="stat-card"><span class="stat-icon amber">◉</span><div><strong>Local</strong><small>By default</small></div><span class="stat-note">Your work stays here</span></div></div>
-        <div class="section-heading"><div><div class="eyebrow">YOUR WORKBENCH</div><h2>Jump back into building</h2><p>Handy utilities for your everyday development workflow.</p></div><a class="text-link" href="#labs">All tools <span>→</span></a></div>
-        <div class="tool-grid home-tool-grid">
-          <button class="tool-card" data-open-tool="playground"><span class="tool-icon violet">&lt;/&gt;</span><span class="tool-category">WEB DEVELOPMENT</span><strong>Live Playground</strong><p>Write HTML, CSS and JS with an instant preview.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
-          <button class="tool-card" data-open-tool="json"><span class="tool-icon teal">{ }</span><span class="tool-category">DATA</span><strong>JSON Formatter</strong><p>Format, validate and compact JSON safely.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
-          <button class="tool-card" data-open-tool="text"><span class="tool-icon amber">Tt</span><span class="tool-category">WRITING</span><strong>Text Toolkit</strong><p>Count words and transform text in seconds.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
-          <button class="tool-card" data-open-tool="colors"><span class="tool-icon pink">◒</span><span class="tool-category">DESIGN</span><strong>Color Studio</strong><p>Create gradients and copy color values.</p><span class="tool-bottom">Open tool <b>↗</b></span></button>
-        </div>
-        <div class="bottom-panels"><div class="panel roadmap-mini"><div class="panel-title"><div><div class="eyebrow">IN THE WORKS</div><h3>Lab progress</h3></div><a href="#progress" class="text-link">Details →</a></div><div class="mini-progress"><div class="progress-label"><span>Developer tools foundation</span><strong>In progress</strong></div><div class="progress-track"><span style="width:68%"></span></div><small>Core browser tools are available. More tools are being planned.</small></div><div class="milestone-list"><div class="milestone done"><i>✓</i><span><strong>Brand & website</strong><small>Foundation published in this package</small></span><b>Done</b></div><div class="milestone current"><i>•</i><span><strong>First useful tools</strong><small>Browser-based toolkit</small></span><b>Active</b></div><div class="milestone"><i>3</i><span><strong>Community feedback</strong><small>Collect ideas and improve</small></span><b>Next</b></div></div></div><div class="panel idea-panel"><div class="idea-spark">✳</div><div class="eyebrow">YOUR IDEA MATTERS</div><h3>What should we build next?</h3><p>Suggest a tool, share a pain point, or tell us what would make learning to code easier.</p><a class="button secondary full" href="#suggest">Share an idea <span>→</span></a><small>Opens your email app to send the suggestion.</small></div></div>
-        <footer class="site-footer"><span>NI Software Labs · Built for curious minds.</span><div><a href="privacy.html">Privacy</a><a href="mailto:nivaas9293@gmail.com">Contact</a><a href="https://github.com/nivaas219" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer>
-      </section>
+    <section class="section-wrap tools-section" id="tools">
+      <div class="section-heading"><div><div class="eyebrow">THE TOOLKIT</div><h2>Powerful tools for <span class="gradient-text">every creator.</span></h2><p>Small utilities, big momentum. Pick a tool and get straight to work.</p></div><div class="tool-controls"><span class="tool-count" id="toolCount">20 tools</span><button class="button button-ghost button-small" id="showAll">View all tools ↗</button></div></div>
+      <div class="category-row" id="categoryRow"><button class="chip selected" data-category="All">All tools</button><button class="chip" data-category="Code">Code</button><button class="chip" data-category="Text">Text</button><button class="chip" data-category="Security">Security</button><button class="chip" data-category="Design">Design</button><button class="chip" data-category="Data">Data</button></div>
+      <div class="tool-grid" id="toolGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>No tools match that search. Try another keyword.</div>
+    </section>
 
-      <section class="page" id="page-labs"><div class="page-intro"><div class="eyebrow">TOOLBOX / 08 AVAILABLE</div><h1>Developer <span class="gradient-text">Labs</span></h1><p>Small, focused tools that work directly in your browser. Choose a tool to get started.</p></div><div class="filter-row"><label class="search-box"><span>⌕</span><input id="toolSearch" type="search" placeholder="Search tools…" aria-label="Search tools" /></label><div class="filter-chips"><button class="filter-chip selected" data-filter="all">All tools</button><button class="filter-chip" data-filter="dev">Developer</button><button class="filter-chip" data-filter="text">Text</button><button class="filter-chip" data-filter="design">Design</button></div></div><div class="tool-grid all-tool-grid" id="allToolsGrid"></div><div class="notice"><span>ⓘ</span><p><strong>Privacy note:</strong> Tools process your input in your browser. This static version does not upload your code or text to a server.</p></div></section>
+    <section class="labs-section" id="labs"><div class="section-wrap labs-inner"><div><div class="eyebrow">THE EXPERIMENTAL ZONE</div><h2>Welcome to the <span class="gradient-text">Labs.</span></h2><p>Explore ideas in progress: AI-assisted workflows, automation experiments, and developer experiences designed to make building easier.</p><a class="button" href="#roadmap">See what's next →</a></div><div class="lab-cards"><article class="lab-card"><span class="lab-icon purple">✦</span><div><span class="status status-progress">IN DEVELOPMENT</span><h3>AI Workspace</h3><p>A planned assistant experience for explaining, drafting, and improving code. Live AI requires a configured model/API connection.</p></div></article><article class="lab-card"><span class="lab-icon blue">⌘</span><div><span class="status status-concept">CONCEPT</span><h3>Workflow Automator</h3><p>Design repeatable developer workflows and connect your favorite services.</p></div></article><article class="lab-card"><span class="lab-icon cyan">◈</span><div><span class="status status-concept">CONCEPT</span><h3>Project Launchpad</h3><p>A guided starting point for prototypes, documentation, and launch checklists.</p></div></article></div></div></section>
 
-      <section class="page" id="page-tool"><div class="tool-page-head"><button class="back-link" id="backToLabs">← All labs</button><div class="eyebrow" id="toolCategory">DEVELOPER TOOL</div><h1 id="toolTitle">Tool</h1><p id="toolDescription">Tool description</p></div><div class="tool-workspace" id="toolWorkspace"></div></section>
+    <section class="section-wrap roadmap" id="roadmap"><div class="section-heading"><div><div class="eyebrow">BUILT IN PUBLIC</div><h2>Our journey, <span class="gradient-text">step by step.</span></h2><p>We'd rather show honest progress than promise features that aren't ready yet.</p></div></div><div class="roadmap-grid"><article><span class="road-number">01</span><span class="status status-live">AVAILABLE</span><h3>Browser toolkit</h3><p>Core text, code, data, and design utilities.</p></article><article><span class="road-number">02</span><span class="status status-progress">IN PROGRESS</span><h3>Better workspaces</h3><p>Improved saved preferences and smoother tool flows.</p></article><article><span class="road-number">03</span><span class="status status-concept">PLANNED</span><h3>AI integrations</h3><p>Optional model connections, subject to secure setup and testing.</p></article><article><span class="road-number">04</span><span class="status status-concept">PLANNED</span><h3>Team & cloud sync</h3><p>Accounts, storage, and collaboration after backend development.</p></article></div></section>
 
-      <section class="page" id="page-progress"><div class="page-intro"><div class="eyebrow">TRANSPARENCY FIRST</div><h1>Lab <span class="gradient-text">progress</span></h1><p>We’ll show what is actually available and what is still being built. No fake launch timers or inflated claims.</p></div><div class="progress-banner"><div><span class="live-dot"></span> CURRENT FOCUS</div><h2>Make the basics useful and reliable.</h2><p>Building a solid collection of free, browser-based utilities before expanding into more complex products.</p></div><div class="progress-list"><div class="progress-item"><div class="progress-symbol done">✓</div><div class="progress-info"><span class="eyebrow">MILESTONE 01</span><h3>Brand & website foundation</h3><p>Responsive website, navigation, privacy information, and public contact route.</p></div><span class="state-tag done-tag">Available</span></div><div class="progress-item"><div class="progress-symbol active-symbol">02</div><div class="progress-info"><span class="eyebrow">MILESTONE 02</span><h3>First browser tools</h3><p>Live code playground, JSON formatter, text toolkit, encoding tools, password generator, and color studio.</p></div><span class="state-tag active-tag">Available</span></div><div class="progress-item"><div class="progress-symbol planned">03</div><div class="progress-info"><span class="eyebrow">MILESTONE 03</span><h3>Community feedback</h3><p>Collect suggestions, prioritize useful requests, and refine tools based on real usage.</p></div><span class="state-tag planned-tag">Planned</span></div><div class="progress-item"><div class="progress-symbol planned">04</div><div class="progress-info"><span class="eyebrow">MILESTONE 04</span><h3>More advanced labs</h3><p>Explore AI-assisted tools and project workflows after choosing a suitable, affordable backend.</p></div><span class="state-tag planned-tag">Planned</span></div></div></section>
+    <section class="section-wrap about-section" id="about"><div class="about-panel"><div class="about-symbol">NI<span>✦</span></div><div><div class="eyebrow">A SMALL TEAM. BIG CURIOSITY.</div><h2>Technology should help you <span class="gradient-text">build more.</span></h2><p>NI Software Labs is an evolving developer-tools project focused on accessible utilities, learning, and practical experimentation. This site is an early release, and features will grow through feedback and iteration.</p><a class="text-link" href="#contact">Share an idea <span>→</span></a></div></div></section>
 
-      <section class="page" id="page-roadmap"><div class="page-intro"><div class="eyebrow">THE BUILD PLAN</div><h1>From idea to <span class="gradient-text">impact.</span></h1><p>A practical roadmap. Priorities can change based on feedback and what can be built sustainably.</p></div><div class="roadmap-grid"><div class="roadmap-card"><span class="roadmap-number">01</span><span class="state-tag done-tag">Foundation</span><h3>Build the base</h3><p>Website, clear project status, and essential browser tools.</p><ul><li>Responsive UI</li><li>Core utilities</li><li>Privacy-first processing</li></ul></div><div class="roadmap-card highlighted"><span class="roadmap-number">02</span><span class="state-tag active-tag">Current focus</span><h3>Improve the labs</h3><p>Make existing tools easier to use and collect meaningful feedback.</p><ul><li>Fixes and accessibility</li><li>Useful templates</li><li>Community suggestions</li></ul></div><div class="roadmap-card"><span class="roadmap-number">03</span><span class="state-tag planned-tag">Planned</span><h3>Build bigger tools</h3><p>Choose advanced projects based on demand, cost, and feasibility.</p><ul><li>AI features, if funded</li><li>Project export workflows</li><li>Optional premium features</li></ul></div></div><div class="notice"><span>ⓘ</span><p>Roadmap items are intentions, not promises or release dates. AI services and cloud features may require a backend, service credentials, and separate deployment setup.</p></div></section>
+    <section class="section-wrap contact-section" id="contact"><div class="contact-card"><div><div class="eyebrow">YOUR IDEA COULD BE NEXT</div><h2>What should we <span class="gradient-text">build next?</span></h2><p>Tell us about a tool, workflow, or feature that would make your work easier.</p></div><form id="ideaForm"><label for="ideaEmail">Your email</label><input id="ideaEmail" type="email" placeholder="you@example.com" required><label for="ideaText">Your idea</label><textarea id="ideaText" rows="3" placeholder="I wish there was a tool that..." required></textarea><button class="button" type="submit">Prepare idea email ↗</button><small>Opens your email app; this demo does not store or transmit submissions.</small></form></div></section>
+  </main>
 
-      <section class="page" id="page-suggest"><div class="suggest-layout"><div class="page-intro"><div class="eyebrow">HELP SHAPE THE LAB</div><h1>Have an idea?<br/><span class="gradient-text">Send it our way.</span></h1><p>Tell us what tool would help you study, build, design, or solve a real problem. Useful, specific suggestions are the easiest to act on.</p><div class="suggest-points"><div><span>✦</span><div><strong>Practical problems welcome</strong><small>Describe what takes too much time or feels too difficult.</small></div></div><div><span>⌘</span><div><strong>Students and developers</strong><small>Beginner-friendly ideas are especially welcome.</small></div></div><div><span>↗</span><div><strong>Direct contact</strong><small>Your email app opens with a draft; you choose whether to send it.</small></div></div></div></div><form class="panel idea-form" id="ideaForm"><div class="form-head"><div class="eyebrow">IDEA SUBMISSION</div><h3>Tell us what to build</h3><p>Fields marked * are required.</p></div><label>Your name <span>*</span><input name="name" required maxlength="80" placeholder="How should we address you?" /></label><label>Your email <span>*</span><input type="email" name="email" required maxlength="120" placeholder="you@example.com" /></label><label>Idea title <span>*</span><input name="title" required maxlength="120" placeholder="e.g. A tool to organise coding notes" /></label><label>What should it do? <span>*</span><textarea name="details" required rows="5" maxlength="2000" placeholder="What problem does it solve? Who would use it? What would make it useful?"></textarea></label><label>Category<select name="category"><option>Developer tool</option><option>AI / automation</option><option>Education</option><option>Design</option><option>Productivity</option><option>Other</option></select></label><button class="button primary full" type="submit">Prepare email submission <span>→</span></button><p class="form-note">This form opens your default email app. It does not silently store or submit your details to this website.</p><div id="formStatus" class="form-status" aria-live="polite"></div></form></div></section>
+  <footer class="footer section-wrap"><a class="brand" href="#"><span class="brand-mark">N<span>I</span></span><span class="brand-copy"><b>NI Software Labs</b><small>BUILD · AUTOMATE · SCALE</small></span></a><p>Made for curious minds and ambitious builders.</p><span>© <span id="year"></span> NI Software Labs · <a href="privacy.html">Privacy</a> · <a href="README.md">About this release</a></span></footer>
 
-      <footer class="site-footer global-footer"><span>NI Software Labs · Build. Learn. Ship.</span><div><a href="privacy.html">Privacy</a><a href="mailto:nivaas9293@gmail.com">Contact</a><a href="https://github.com/nivaas219" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer>
-    </main>
+  <div class="modal-backdrop" id="maintenanceModal" role="dialog" aria-modal="true" aria-labelledby="maintenanceTitle">
+    <div class="maintenance-modal"><div class="modal-orb">⚙</div><div class="eyebrow">A QUICK HEADS-UP</div><h2 id="maintenanceTitle">Platform in active development</h2><p>We're polishing the experience and building what comes next. Some advanced features are still in progress, but the available browser tools are ready to explore.</p><div class="progress-track"><span></span></div><div class="modal-note"><span class="clock-icon">◷</span><div><b>Early access preview</b><small>Features may change as we improve the platform.</small></div></div><button class="button modal-ok" id="dismissMaintenance">OK, let's explore <span>→</span></button><button class="modal-dismiss" id="dismissX" aria-label="Close notice">×</button></div>
   </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="/script.js"></script>
+
+  <div class="tool-modal-backdrop" id="toolModal" hidden><section class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="toolModalTitle"><div class="tool-modal-header"><div><span class="eyebrow" id="toolModalCategory">TOOL</span><h2 id="toolModalTitle">Tool</h2></div><button class="icon-btn" id="closeTool" aria-label="Close tool">×</button></div><div id="toolBody"></div></section></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
 </body>
 </html>
