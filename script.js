@@ -18,7 +18,16 @@ const tools = [
 {id:'jwt',name:'JWT Decoder',category:'Security',icon:'◈',tone:'cyan',desc:'Inspect JWT header and payload locally.',type:'jwt'},
 {id:'diff',name:'Text Diff Checker',category:'Text',icon:'±',tone:'pink',desc:'Compare two blocks of text line by line.',type:'diff'},
 {id:'number',name:'Number Base Converter',category:'Data',icon:'01',tone:'blue',desc:'Convert decimal, binary, hex, and octal.',type:'number'},
-{id:'image',name:'Image Compressor',category:'Design',icon:'▧',tone:'purple',desc:'Resize and export an image in your browser.',type:'image'}
+{id:'image',name:'Image Compressor',category:'Design',icon:'▧',tone:'purple',desc:'Resize and export an image in your browser.',type:'image'},
+{id:'vocab',name:'English Vocabulary Builder',category:'Text',icon:'Aa',tone:'cyan',desc:'Generate English words, meanings, and examples.',type:'vocab'},
+{id:'summarizer',name:'Text Summarizer',category:'Text',icon:'≋',tone:'purple',desc:'Create a concise extractive summary locally.',type:'summarizer'},
+{id:'quiz',name:'Study Questions Generator',category:'Text',icon:'?',tone:'blue',desc:'Turn notes into review questions.',type:'quiz'},
+{id:'sql',name:'SQL Formatter',category:'Code',icon:'▤',tone:'pink',desc:'Format common SQL keywords and clauses.',type:'sql'},
+{id:'cron',name:'Cron Helper',category:'Code',icon:'◷',tone:'cyan',desc:'Explain common cron schedule fields.',type:'cron'},
+{id:'contrast',name:'Color Contrast Checker',category:'Design',icon:'◐',tone:'blue',desc:'Estimate contrast ratio for accessible UI.',type:'contrast'},
+{id:'csv',name:'CSV to JSON',category:'Data',icon:'⇄',tone:'purple',desc:'Convert simple CSV data into JSON.',type:'csv'},
+{id:'http',name:'HTTP Status Guide',category:'Code',icon:'↔',tone:'cyan',desc:'Look up common HTTP response codes.',type:'http'},
+{id:'snippet',name:'Code Snippet Notes',category:'Code',icon:'⌘',tone:'pink',desc:'Draft and copy reusable code notes.',type:'snippet'} 
 ];
 const grid=document.getElementById('toolGrid'), search=document.getElementById('globalSearch'), count=document.getElementById('toolCount'), empty=document.getElementById('emptyState');
 let activeCategory='All', showAll=false;
@@ -62,7 +71,17 @@ case'jwt':html=`${field('JWT token','jwtInput','Paste a three-part JWT here')}<b
 case'diff':html=`<div class="tool-layout">${field('Original text','diffA','Line one\\nLine two\\nOld line')}${field('New text','diffB','Line one\\nLine two\\nNew line')}</div><button class="button" onclick="runDiff()">Compare lines</button><div class="tool-output" id="diffOutput"></div><p class="tool-help">Simple line-by-line comparison; not a full Git diff algorithm.</p>`;break;
 case'number':html=`${inputField('Number','numberInput','255','number')}<div class="tool-field"><label for="numberBase">Input base</label><select id="numberBase"><option value="10">Decimal</option><option value="2">Binary</option><option value="16">Hexadecimal</option><option value="8">Octal</option></select></div><button class="button" onclick="runNumber()">Convert</button><div class="tool-output" id="numberOutput"></div>`;break;
 case'image':html=`<div class="tool-field"><label for="imageFile">Choose an image</label><input id="imageFile" type="file" accept="image/*"></div><div class="tool-layout"><div class="tool-field"><label for="imageQuality">JPEG quality: <span id="imageQualityValue">80</span>%</label><input id="imageQuality" type="range" min="20" max="100" value="80" oninput="document.getElementById('imageQualityValue').textContent=this.value"></div>${inputField('Max width (px)','imageWidth','1600','number')}</div><button class="button" onclick="runImage()">Compress / export JPEG</button><div id="imageOutput" class="tool-output">Choose an image to begin. Processing stays in your browser.</div>`;break;
+case'vocab':html=`<div class="tool-field"><label for="vocabLevel">Level</label><select id="vocabLevel"><option>Everyday</option><option>Academic</option><option>Advanced</option></select></div><button class="button" onclick="runVocab()">Generate a word</button><div class="tool-output" id="vocabOutput">Choose a level and generate a word.</div><p class="tool-help">Offline sample vocabulary set; not a live dictionary.</p>`;break;
+case'summarizer':html=`${field('Paste your text','summaryInput','Paste notes or an article here to create a short extractive summary.')}<div class="tool-field"><label for="summarySentences">Summary length</label><select id="summarySentences"><option value="2">Very short</option><option value="3" selected>Balanced</option><option value="5">Detailed</option></select></div><button class="button" onclick="runSummarizer()">Summarize text</button><div class="tool-output" id="summaryOutput"></div><p class="tool-help">This is a local extractive summary helper, not a generative AI model. Review the result for context and accuracy.</p>`;break;
+case'quiz':html=`${field('Study notes or topic','quizInput','Photosynthesis is the process by which green plants use sunlight to synthesize food from carbon dioxide and water. Chlorophyll absorbs light energy. Oxygen is released as a by-product.')}<button class="button" onclick="runQuiz()">Generate review questions</button><div class="tool-output" id="quizOutput"></div><p class="tool-help">Questions are generated with simple local heuristics. They are prompts for revision, not verified exam questions.</p>`;break;
+case'sql':html=`${field('SQL query','sqlInput','select id,name from users where active=1 order by name;')}<button class="button" onclick="runSQL()">Format SQL</button><div class="tool-output" id="sqlOutput"></div>`;break;
+case'cron':html=`${inputField('Cron expression','cronInput','*/15 * * * *')}<button class="button" onclick="runCron()">Explain schedule</button><div class="tool-output" id="cronOutput"></div><p class="tool-help">Basic helper for common five-field cron syntax; confirm with your target scheduler.</p>`;break;
+case'contrast':html=`<div class="tool-layout"><div class="tool-field"><label for="contrastFg">Text color</label><input type="color" id="contrastFg" value="#ffffff"></div><div class="tool-field"><label for="contrastBg">Background color</label><input type="color" id="contrastBg" value="#10172b"></div></div><button class="button" onclick="runContrast()">Check contrast</button><div class="tool-output" id="contrastOutput"></div>`;break;
+case'csv':html=`${field('CSV input','csvInput','name,role\\nNivaas,Developer\\nNI Labs,Project')}<button class="button" onclick="runCSV()">Convert to JSON</button><div class="tool-output" id="csvOutput"></div>`;break;
+case'http':html=`${inputField('HTTP status code','httpInput','404','number')}<button class="button" onclick="runHTTP()">Explain status</button><div class="tool-output" id="httpOutput"></div>`;break;
+case'snippet':html=`${inputField('Snippet title','snippetTitle','Useful JavaScript snippet')}${field('Code / notes','snippetInput','const greeting = name => \`Hello, \${name}!\`;')}<button class="button" onclick="copyValue(document.getElementById('snippetInput').value)">Copy snippet</button><button class="button button-ghost" onclick="saveSnippet()">Save in this browser</button><div class="tool-output" id="snippetOutput"></div><p class="tool-help">Saved snippets stay in this browser's local storage.</p>`;break;
 }
+
 toolBody.innerHTML=html;toolModal.hidden=false;document.body.style.overflow='hidden';}
 function closeTool(){toolModal.hidden=true;document.body.style.overflow=''}document.getElementById('closeTool').addEventListener('click',closeTool);toolModal.addEventListener('click',e=>{if(e.target===toolModal)closeTool()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTool();dismissMaintenance()}});
 function copyValue(s){if(!s)return notify('Nothing to copy yet');navigator.clipboard?.writeText(s).then(()=>notify('Copied to clipboard')).catch(()=>notify('Clipboard access unavailable — select and copy manually'))}
@@ -86,4 +105,107 @@ function runDiff(){const a=document.getElementById('diffA').value.split('\n'),b=
 function runNumber(){const base=Number(document.getElementById('numberBase').value),n=parseInt(document.getElementById('numberInput').value,base);document.getElementById('numberOutput').textContent=Number.isNaN(n)?'Enter a valid number for the selected base.':`Decimal: ${n}\nBinary: ${n.toString(2)}\nOctal: ${n.toString(8)}\nHexadecimal: ${n.toString(16).toUpperCase()}`}
 function runPlayground(){const html=document.getElementById('playHtml').value,css=document.getElementById('playCss').value,js=document.getElementById('playJs').value;const doc=`<!doctype html><html><head><meta charset="utf-8"><style>${css.replace(/<\/style/gi,'')}</style></head><body>${html.replace(/<\/body/gi,'')}<script>${js.replace(/<\/script/gi,'')}<\/script></body></html>`;document.getElementById('playPreview').srcdoc=doc}
 async function runImage(){const f=document.getElementById('imageFile').files[0];const out=document.getElementById('imageOutput');if(!f){out.textContent='Choose an image first.';return}const url=URL.createObjectURL(f),img=new Image();img.onload=()=>{const max=Math.max(100,Number(document.getElementById('imageWidth').value)||1600),scale=Math.min(1,max/img.width),canvas=document.createElement('canvas');canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);canvas.toBlob(blob=>{if(!blob){out.textContent='Could not export this image.';URL.revokeObjectURL(url);return}const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='ni-labs-compressed.jpg';link.textContent='Download compressed JPEG';out.innerHTML=`Original: ${f.name} (${Math.round(f.size/1024)} KB)\nOutput: ${canvas.width} × ${canvas.height} (${Math.round(blob.size/1024)} KB)\n`;out.appendChild(document.createElement('br'));out.appendChild(link);URL.revokeObjectURL(url)},'image/jpeg',Number(document.getElementById('imageQuality').value)/100)};img.onerror=()=>{out.textContent='Could not load this image.';URL.revokeObjectURL(url)};img.src=url}
+
+// Access gate: this is a front-end preview gate only, not secure authorization.
+// The access code is visible in client-side source; use server-side auth for real private access.
+const ACCESS_CODE = 'NIgA66Xb29';
+const accessGate = document.getElementById('accessGate');
+if (sessionStorage.getItem('niLabsPreviewUnlocked') === 'yes') accessGate.classList.add('unlocked');
+document.getElementById('accessForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const entered = document.getElementById('accessCode').value;
+  if (entered === ACCESS_CODE) {
+    sessionStorage.setItem('niLabsPreviewUnlocked', 'yes');
+    accessGate.classList.add('unlocked');
+    document.getElementById('gateError').textContent = '';
+    notify('Access granted — welcome to the lab.');
+  } else {
+    document.getElementById('gateError').textContent = 'Access code not recognized. Please try again.';
+    document.getElementById('accessCode').value = '';
+    document.getElementById('accessCode').focus();
+  }
+});
+document.getElementById('toggleCode').addEventListener('click', () => {
+  const input = document.getElementById('accessCode'), btn = document.getElementById('toggleCode');
+  input.type = input.type === 'password' ? 'text' : 'password';
+  btn.textContent = input.type === 'password' ? 'Show' : 'Hide';
+});
+const profileDefaults = {name:'',role:'Beginner',language:'English',reduceMotion:false,compactCards:false};
+function loadProfile(){
+  let p={...profileDefaults};try{p={...p,...JSON.parse(localStorage.getItem('niLabsProfile')||'{}')}}catch(e){}
+  document.getElementById('profileName').value=p.name||'';
+  document.getElementById('profileRole').value=p.role||'Beginner';
+  document.getElementById('profileLanguage').value=p.language||'English';
+  document.getElementById('reduceMotion').checked=!!p.reduceMotion;
+  document.getElementById('compactCards').checked=!!p.compactCards;
+  document.body.classList.toggle('reduce-motion',!!p.reduceMotion);
+  document.body.classList.toggle('compact-tools',!!p.compactCards);
+}
+loadProfile();
+document.getElementById('profileForm').addEventListener('submit',e=>{
+  e.preventDefault();saveProfile();document.getElementById('profileStatus').textContent='Preferences saved in this browser.';notify('Profile preferences saved.');
+});
+function saveProfile(){
+  const p={name:document.getElementById('profileName').value.trim(),role:document.getElementById('profileRole').value,language:document.getElementById('profileLanguage').value,reduceMotion:document.getElementById('reduceMotion').checked,compactCards:document.getElementById('compactCards').checked};
+  localStorage.setItem('niLabsProfile',JSON.stringify(p));document.body.classList.toggle('reduce-motion',p.reduceMotion);document.body.classList.toggle('compact-tools',p.compactCards);
+}
+document.getElementById('reduceMotion').addEventListener('change',saveProfile);
+document.getElementById('compactCards').addEventListener('change',saveProfile);
+function runVocab(){
+ const bank={
+ 'Everyday':[['curious','eager to know or learn something','I am curious about how this app works.'],['reliable','able to be trusted','A reliable tool saves time.'],['improve','to make something better','Practice helps improve your English.'],['confident','believing in your ability','She felt confident during the presentation.']],
+ 'Academic':[['analyze','examine something carefully','Analyze the results before drawing a conclusion.'],['significant','important or large enough to matter','The experiment showed a significant change.'],['interpret','explain the meaning of information','Interpret the graph in your own words.'],['evidence','information that supports a claim','Use evidence to support your answer.']],
+ 'Advanced':[['meticulous','showing great attention to detail','The engineer performed a meticulous code review.'],['ubiquitous','present or found everywhere','Cloud services are ubiquitous in modern software.'],['pragmatic','focused on practical results','We chose a pragmatic solution for the prototype.'],['resilient','able to recover quickly from difficulty','A resilient system handles failures gracefully.']]
+ };
+ const level=document.getElementById('vocabLevel').value, arr=bank[level], w=arr[Math.floor(Math.random()*arr.length)];
+ document.getElementById('vocabOutput').textContent=`WORD: ${w[0]}\\nMEANING: ${w[1]}\\nEXAMPLE: ${w[2]}\\n\\nYOUR TURN: Write one sentence using "${w[0]}".`;
+}
+function runSummarizer(){
+ const text=document.getElementById('summaryInput').value.trim(), n=Number(document.getElementById('summarySentences').value);
+ if(!text){document.getElementById('summaryOutput').textContent='Paste some text first.';return}
+ const sentences=text.match(/[^.!?]+[.!?]?/g)||[text];
+ const words=text.toLowerCase().match(/[a-z0-9']+/g)||[], freq={};
+ words.forEach(w=>{if(w.length>3)freq[w]=(freq[w]||0)+1});
+ const scored=sentences.map((s,i)=>({s:s.trim(),i,score:(s.toLowerCase().match(/[a-z0-9']+/g)||[]).reduce((a,w)=>a+(freq[w]||0),0)}));
+ const chosen=scored.slice().sort((a,b)=>b.score-a.score).slice(0,Math.min(n,scored.length)).sort((a,b)=>a.i-b.i);
+ document.getElementById('summaryOutput').textContent=chosen.map(x=>x.s).join(' ');
+}
+function runQuiz(){
+ const s=document.getElementById('quizInput').value.trim();if(!s){document.getElementById('quizOutput').textContent='Add notes or a topic first.';return}
+ const sentences=(s.match(/[^.!?]+[.!?]?/g)||[s]).map(x=>x.trim()).filter(Boolean);
+ const keywords=(s.match(/\b[A-Z][a-z]{3,}\b|\b[a-z]{5,}\b/g)||[]).filter((w,i,a)=>a.findIndex(x=>x.toLowerCase()===w.toLowerCase())===i).slice(0,6);
+ const qs=[];
+ if(sentences[0])qs.push('1. Summarize the main idea in your own words.');
+ keywords.slice(0,4).forEach((w,i)=>qs.push(`${qs.length+1}. What does "${w}" mean in this context?`));
+ if(sentences.length>1)qs.push(`${qs.length+1}. How are the main points connected?`);
+ qs.push(`${qs.length+1}. Write one practical example or application of this topic.`);
+ document.getElementById('quizOutput').textContent=qs.join('\\n');
+}
+function runSQL(){
+ let s=document.getElementById('sqlInput').value.trim();
+ const keywords=['select','from','where','left join','right join','inner join','outer join','join','on','group by','order by','having','limit','offset','values','set','returning','union','and','or'];
+ keywords.sort((a,b)=>b.length-a.length).forEach(k=>{const re=new RegExp('\\\\b'+k.replace(/\\s+/g,'\\\\s+')+'\\\\b','ig');s=s.replace(re,'\\n'+k.toUpperCase())});
+ s=s.replace(/\\s*,\\s*/g,', ').replace(/\\n\\s*/g,'\\n').trim().replace(/^\\n/,'');
+ document.getElementById('sqlOutput').textContent=s;
+}
+function runCron(){
+ const s=document.getElementById('cronInput').value.trim().split(/\\s+/), out=document.getElementById('cronOutput');
+ if(s.length!==5){out.textContent='Enter five fields: minute hour day-of-month month day-of-week.';return}
+ const names=['Minute','Hour','Day of month','Month','Day of week'];
+ out.textContent=s.map((v,i)=>`${names[i]}: ${v==='*'?'every '+names[i].toLowerCase():v.startsWith('*/')?'every '+v.slice(2)+' '+names[i].toLowerCase()+' units':v}`).join('\\n')+'\\n\\nCheck this schedule in your actual cron environment before using it.';
+}
+function hexRgb(h){const n=parseInt(h.slice(1),16);return[(n>>16)&255,(n>>8)&255,n&255]}
+function luminance(rgb){const a=rgb.map(v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*a[0]+.7152*a[1]+.0722*a[2]}
+function runContrast(){const fg=luminance(hexRgb(document.getElementById('contrastFg').value)),bg=luminance(hexRgb(document.getElementById('contrastBg').value)),ratio=(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);document.getElementById('contrastOutput').textContent=`Contrast ratio: ${ratio.toFixed(2)}:1\\nWCAG AA normal text (4.5:1): ${ratio>=4.5?'PASS':'FAIL'}\\nWCAG AA large text (3:1): ${ratio>=3?'PASS':'FAIL'}`}
+function runCSV(){
+ const rows=document.getElementById('csvInput').value.trim().split(/\\r?\\n/);if(rows.length<2){document.getElementById('csvOutput').textContent='Include a header row and at least one data row.';return}
+ const parse=r=>r.split(',').map(x=>x.trim());const headers=parse(rows[0]);const result=rows.slice(1).map(row=>{const vals=parse(row),obj={};headers.forEach((h,i)=>obj[h]=vals[i]??'');return obj});
+ document.getElementById('csvOutput').textContent=JSON.stringify(result,null,2);
+}
+function runHTTP(){
+ const n=Number(document.getElementById('httpInput').value), guide={200:'OK — request succeeded.',201:'Created — a resource was created.',204:'No Content — success with no response body.',301:'Moved Permanently — permanent redirect.',302:'Found — temporary redirect.',304:'Not Modified — cached response can be reused.',400:'Bad Request — request could not be understood.',401:'Unauthorized — authentication is required or invalid.',403:'Forbidden — server refuses the request.',404:'Not Found — resource does not exist at this URL.',409:'Conflict — request conflicts with current resource state.',422:'Unprocessable Content — validation or semantic issue.',429:'Too Many Requests — rate limit may apply.',500:'Internal Server Error — unexpected server failure.',502:'Bad Gateway — invalid upstream response.',503:'Service Unavailable — server is temporarily unavailable.',504:'Gateway Timeout — upstream server did not respond in time.'};
+ document.getElementById('httpOutput').textContent=guide[n]||'No built-in note for this code. Check the relevant HTTP specification or API documentation.';
+}
+function saveSnippet(){const arr=JSON.parse(localStorage.getItem('niLabsSnippets')||'[]');arr.push({title:document.getElementById('snippetTitle').value,code:document.getElementById('snippetInput').value,created:new Date().toISOString()});localStorage.setItem('niLabsSnippets',JSON.stringify(arr.slice(-30)));document.getElementById('snippetOutput').textContent=`Saved locally. ${Math.min(arr.length,30)} snippet(s) kept in this browser.`;notify('Snippet saved locally.')}
+
 document.getElementById('ideaForm').addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('ideaEmail').value,idea=document.getElementById('ideaText').value;location.href=`mailto:hello@nisoftwarelabs.example?subject=${encodeURIComponent('NI Software Labs — Feature Idea')}&body=${encodeURIComponent('From: '+email+'\n\nIdea:\n'+idea+'\n\nNote: Please replace hello@nisoftwarelabs.example in script.js with a real inbox before launch.')}`;notify('Opening your email app…')});
